@@ -1,4 +1,4 @@
-/* frontend/src/App.css - Kuromi Theme */
+/* frontend/src/App.css - Kuromi Theme (CENTERED) */
 
 * {
   margin: 0;
@@ -8,7 +8,7 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  background: #1a1a1a;  /* Dark gothic background */
+  background: #1a1a1a;
   min-height: 100vh;
   color: #f0e6f0;
   position: relative;
@@ -41,30 +41,38 @@ body::after {
 }
 
 .app {
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 2rem 1.5rem;
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* Center all content horizontally */
 }
 
-/* Header Styles */
+/* Header Styles - CENTERED */
 .header {
   text-align: center;
   margin-bottom: 3rem;
   position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header h1 {
   font-size: 3rem;
-  color: #ff69b4;  /* Hot pink */
+  color: #ff69b4;
   font-weight: 700;
   letter-spacing: 2px;
-  text-shadow: 3px 3px 0 #8a2be2, 5px 5px 0 #000;  /* Purple and black shadow */
+  text-shadow: 3px 3px 0 #8a2be2, 5px 5px 0 #000;
   margin-bottom: 0.5rem;
   font-family: 'Arial Black', sans-serif;
   position: relative;
   display: inline-block;
+  text-align: center;
 }
 
 /* Kuromi's bow ears effect */
@@ -89,7 +97,7 @@ body::after {
 
 .header p {
   font-size: 1.3rem;
-  color: #b886d9;  /* Light purple */
+  color: #b886d9;
   font-weight: 400;
   background: rgba(0, 0, 0, 0.5);
   padding: 0.5rem 2rem;
@@ -97,17 +105,26 @@ body::after {
   display: inline-block;
   border: 2px solid #ff69b4;
   box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+  margin: 0 auto;  /* Center the paragraph */
+  text-align: center;
 }
 
-/* Form Styles */
+/* Form Styles - CENTERED */
 .guestbook-form {
-  background: #2a1f2a;  /* Dark purple-black */
-  padding: 2rem;
-  border-radius: 30px 30px 30px 30px;
+  background: #2a1f2a;
+  padding: 2.5rem;
+  border-radius: 30px;
   box-shadow: 0 10px 0 #000, 0 0 0 3px #ff69b4, 0 0 20px #ff69b4;
   margin-bottom: 3rem;
   border: 2px solid #8a2be2;
   position: relative;
+  width: 100%;
+  max-width: 550px;  /* Slightly narrower for better centering */
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Kuromi's skull ribbon effect */
@@ -124,6 +141,7 @@ body::after {
   border-radius: 30px;
   border: 2px solid #ff69b4;
   box-shadow: 0 3px 0 #000;
+  white-space: nowrap;
 }
 
 .guestbook-form h2 {
@@ -136,10 +154,15 @@ body::after {
   text-transform: uppercase;
   letter-spacing: 3px;
   text-shadow: 2px 2px 0 #8a2be2;
+  width: 100%;
 }
 
 .form-group {
   margin-bottom: 1.8rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-group label {
@@ -150,12 +173,14 @@ body::after {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-left: 5px;
+  text-align: center;  /* Center the label text */
+  width: 100%;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
+  max-width: 450px;  /* Control input width for better centering */
   padding: 1rem 1.2rem;
   border: 3px solid #4a2b4a;
   border-radius: 20px;
@@ -165,6 +190,8 @@ body::after {
   transition: all 0.2s ease;
   color: #ffb6e1;
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;  /* Center the inputs */
+  display: block;
 }
 
 .form-group input:focus,
@@ -179,11 +206,13 @@ body::after {
 .form-group textarea::placeholder {
   color: #4f3f4f;
   font-style: italic;
+  text-align: center;  /* Center placeholder text */
 }
 
-/* Submit Button */
+/* Submit Button - CENTERED */
 button[type="submit"] {
   width: 100%;
+  max-width: 450px;
   padding: 1.2rem;
   background: linear-gradient(145deg, #ff69b4, #8a2be2);
   color: white;
@@ -198,6 +227,8 @@ button[type="submit"] {
   box-shadow: 0 8px 0 #4f1f4f, 0 0 0 2px #ff69b4;
   text-transform: uppercase;
   text-shadow: 2px 2px 0 #000;
+  margin: 0 auto;  /* Center the button */
+  display: block;
 }
 
 button[type="submit"]:hover {
@@ -218,10 +249,14 @@ button[type="submit"]:disabled {
   cursor: not-allowed;
 }
 
-/* Entries Section */
+/* Entries Section - CENTERED */
 .entries-section {
   margin-top: 4rem;
   position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .entries-section h2 {
@@ -234,6 +269,7 @@ button[type="submit"]:disabled {
   letter-spacing: 4px;
   text-shadow: 3px 3px 0 #8a2be2, 5px 5px 0 #000;
   position: relative;
+  display: inline-block;
 }
 
 .entries-section h2::before,
@@ -254,6 +290,9 @@ button[type="submit"]:disabled {
   font-size: 1.2rem;
   font-weight: 500;
   box-shadow: 0 10px 0 #000;
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
 }
 
 .no-messages::before {
@@ -264,22 +303,27 @@ button[type="submit"]:disabled {
   color: #ff69b4;
 }
 
-/* Entry Cards */
+/* Entry Cards - CENTERED */
 .entries-grid {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
 }
 
 .entry-card {
   background: #2a1f2a;
   border-radius: 30px;
-  padding: 1.5rem;
+  padding: 1.8rem;
   border: 3px solid #4a2b4a;
   box-shadow: 0 8px 0 #000, 0 0 0 2px #ff69b4;
   transition: all 0.2s ease;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  text-align: left;  /* Keep entry text left-aligned for readability */
 }
 
 /* Kuromi's Jolly Roger accent */
@@ -338,9 +382,10 @@ button[type="submit"]:disabled {
   background: rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   white-space: pre-wrap;
+  text-align: left;
 }
 
-/* Action Buttons */
+/* Action Buttons - CENTERED within card */
 .entry-actions {
   display: flex;
   gap: 0.8rem;
@@ -381,9 +426,10 @@ button[type="submit"]:disabled {
   box-shadow: 0 2px 0 #000;
 }
 
-/* Cancel button (when editing) */
+/* Cancel button (when editing) - CENTERED */
 .cancel-btn {
   width: 100%;
+  max-width: 450px;
   padding: 1.2rem;
   background: #1f151f;
   color: #b886d9;
@@ -396,7 +442,8 @@ button[type="submit"]:disabled {
   transition: all 0.2s ease;
   text-transform: uppercase;
   box-shadow: 0 8px 0 #000;
-  margin-top: 1rem;
+  margin: 1rem auto 0;
+  display: block;
 }
 
 .cancel-btn:hover {
@@ -412,6 +459,8 @@ button[type="submit"]:disabled {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 100%;
+  align-items: center;
 }
 
 /* Kuromi's signature elements */
@@ -449,9 +498,20 @@ button[type="submit"]:disabled {
     display: none;
   }
   
+  .guestbook-form {
+    padding: 1.5rem;
+  }
+  
   .guestbook-form,
-  .entry-card {
-    padding: 1.25rem;
+  .entry-card,
+  .no-messages {
+    max-width: 100%;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  button[type="submit"] {
+    max-width: 100%;
   }
   
   .entry-header {
@@ -461,7 +521,7 @@ button[type="submit"]:disabled {
   }
 }
 
-/* Loading state */
+/* Loading state - CENTERED */
 .loading-spinner {
   text-align: center;
   padding: 2rem;
@@ -470,12 +530,16 @@ button[type="submit"]:disabled {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .loading-spinner::after {
   content: '☠️';
   display: inline-block;
-  margin-left: 0.8rem;
   animation: spin 1s linear infinite;
   font-size: 1.5rem;
 }
@@ -485,7 +549,7 @@ button[type="submit"]:disabled {
   to { transform: rotate(360deg); }
 }
 
-/* Scrollbar styling for that gothic touch */
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 12px;
   background: #1f151f;
