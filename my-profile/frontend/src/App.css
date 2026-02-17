@@ -1,4 +1,4 @@
-/* frontend/src/App.css - Kuromi Theme - Centered Layout */
+/* frontend/src/App.css - Kuromi Theme - Centered Layout (Original Sizes) */
 
 * {
   margin: 0;
@@ -44,28 +44,24 @@ body::after {
 }
 
 .app {
-  width: 100%;
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
 }
 
 /* Header Styles */
 .header {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
   position: relative;
   width: 100%;
 }
 
 .header h1 {
-  font-size: 3.5rem;
+  font-size: 3rem;
   color: #ff69b4;  /* Hot pink */
   font-weight: 700;
   letter-spacing: 2px;
@@ -97,7 +93,7 @@ body::after {
 }
 
 .header p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #b886d9;  /* Light purple */
   font-weight: 400;
   background: rgba(0, 0, 0, 0.5);
@@ -106,20 +102,19 @@ body::after {
   display: inline-block;
   border: 2px solid #ff69b4;
   box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
-  margin-top: 0.5rem;
 }
 
 /* Form Styles */
 .guestbook-form {
   background: #2a1f2a;  /* Dark purple-black */
-  padding: 2.5rem;
-  border-radius: 30px;
+  padding: 2rem;
+  border-radius: 30px 30px 30px 30px;
   box-shadow: 0 10px 0 #000, 0 0 0 3px #ff69b4, 0 0 20px #ff69b4;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
   border: 2px solid #8a2be2;
   position: relative;
   width: 100%;
-  max-width: 550px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -138,7 +133,6 @@ body::after {
   border-radius: 30px;
   border: 2px solid #ff69b4;
   box-shadow: 0 3px 0 #000;
-  white-space: nowrap;
 }
 
 .guestbook-form h2 {
@@ -146,7 +140,7 @@ body::after {
   font-weight: 600;
   color: #ff69b4;
   margin-bottom: 2rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -155,7 +149,6 @@ body::after {
 
 .form-group {
   margin-bottom: 1.8rem;
-  width: 100%;
 }
 
 .form-group label {
@@ -166,7 +159,7 @@ body::after {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-align: center;
+  margin-left: 5px;
 }
 
 .form-group input,
@@ -181,12 +174,6 @@ body::after {
   transition: all 0.2s ease;
   color: #ffb6e1;
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
-  text-align: center;
-}
-
-.form-group textarea {
-  text-align: left;
-  min-height: 100px;
 }
 
 .form-group input:focus,
@@ -201,11 +188,6 @@ body::after {
 .form-group textarea::placeholder {
   color: #4f3f4f;
   font-style: italic;
-  text-align: center;
-}
-
-.form-group textarea::placeholder {
-  text-align: left;
 }
 
 /* Submit Button */
@@ -225,7 +207,6 @@ button[type="submit"] {
   box-shadow: 0 8px 0 #4f1f4f, 0 0 0 2px #ff69b4;
   text-transform: uppercase;
   text-shadow: 2px 2px 0 #000;
-  margin-top: 0.5rem;
 }
 
 button[type="submit"]:hover {
@@ -248,12 +229,9 @@ button[type="submit"]:disabled {
 
 /* Entries Section */
 .entries-section {
-  margin-top: 2.5rem;
+  margin-top: 4rem;
   position: relative;
   width: 100%;
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
 }
 
@@ -279,31 +257,17 @@ button[type="submit"]:disabled {
   display: inline-block;
 }
 
-.entries-count {
-  color: #b886d9;
-  font-size: 1rem;
-  margin-top: -1rem;
-  margin-bottom: 2rem;
-  font-weight: 400;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 0.3rem 1.5rem;
-  border-radius: 30px;
-  display: inline-block;
-  border: 1px solid #ff69b4;
-}
-
 .no-messages {
   text-align: center;
   color: #b886d9;
-  padding: 3rem 2rem;
+  padding: 4rem 2rem;
   background: #2a1f2a;
   border-radius: 30px;
   border: 3px dashed #ff69b4;
   font-size: 1.2rem;
   font-weight: 500;
   box-shadow: 0 10px 0 #000;
-  width: 100%;
-  max-width: 550px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -316,23 +280,11 @@ button[type="submit"]:disabled {
   color: #ff69b4;
 }
 
-.no-messages p {
-  font-style: italic;
-  color: #e0b0e0;
-}
-
-.no-messages p:last-child {
-  font-size: 1rem;
-  margin-top: 1rem;
-  color: #b886d9;
-}
-
 /* Entry Cards */
 .entries-grid {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  width: 100%;
   align-items: center;
 }
 
@@ -346,7 +298,7 @@ button[type="submit"]:disabled {
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 550px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
   text-align: left;
@@ -512,11 +464,10 @@ button[type="submit"]:disabled {
   
   .app {
     padding: 1rem;
-    margin: 1rem auto;
   }
   
   .header h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   
   .header h1::before,
@@ -525,20 +476,14 @@ button[type="submit"]:disabled {
   }
   
   .guestbook-form,
-  .entry-card,
-  .no-messages {
+  .entry-card {
     padding: 1.25rem;
-    max-width: 100%;
   }
   
   .entry-header {
     flex-direction: column;
     gap: 0.5rem;
     align-items: flex-start;
-  }
-  
-  .guestbook-form {
-    padding: 1.5rem;
   }
 }
 
