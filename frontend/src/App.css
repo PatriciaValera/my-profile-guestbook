@@ -1,5 +1,3 @@
-/* frontend/src/App.css - Forest Theme */
-
 * {
   margin: 0;
   padding: 0;
@@ -7,158 +5,146 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-  background: #f5f2e8;  /* Warm paper color */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   min-height: 100vh;
-  color: #2c3e2f;
+  color: #333;
 }
 
 .app {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 2rem;
 }
 
-/* Header Styles */
 .header {
   text-align: center;
+  color: white;
   margin-bottom: 3rem;
 }
 
 .header h1 {
   font-size: 2.5rem;
-  color: #2c5e2e;
-  font-weight: 400;
-  letter-spacing: -0.5px;
   margin-bottom: 0.5rem;
 }
 
 .header p {
-  font-size: 1.2rem;
-  color: #5d7a5e;
-  font-weight: 300;
+  font-size: 1.1rem;
+  opacity: 0.9;
 }
 
-/* Form Styles */
+.main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+}
+
 .guestbook-form {
   background: white;
   padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-  margin-bottom: 3rem;
-  border: 1px solid rgba(44, 94, 46, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: fit-content;
 }
 
 .guestbook-form h2 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #2c5e2e;
   margin-bottom: 1.5rem;
-  letter-spacing: -0.3px;
+  color: #764ba2;
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #5d7a5e;
-  font-size: 0.9rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  font-weight: 500;
+  color: #555;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 1rem;
-  border: 1px solid #e0e8de;
-  border-radius: 12px;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   font-size: 1rem;
-  font-family: inherit;
-  background: #fafaf8;
-  transition: all 0.2s ease;
-  color: #2c3e2f;
+  transition: border-color 0.3s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #8ba888;
-  background: white;
-  box-shadow: 0 0 0 3px rgba(139, 168, 136, 0.1);
+  border-color: #764ba2;
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #b8c6b4;
-  font-weight: 300;
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
-/* Submit Button */
-button[type="submit"] {
-  width: 100%;
-  padding: 1rem;
-  background: #2c5e2e;
-  color: white;
+button {
+  padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 30px;
+  border-radius: 5px;
   font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0.5px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  border: 1px solid #2c5e2e;
+  transition: all 0.3s;
+  flex: 1;
 }
 
-button[type="submit"]:hover {
-  background: #1f4521;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(44, 94, 46, 0.2);
+button[type="submit"] {
+  background: #764ba2;
+  color: white;
 }
 
-button[type="submit"]:active {
-  transform: translateY(0);
+button[type="submit"]:hover:not(:disabled) {
+  background: #5a3d7a;
 }
 
 button[type="submit"]:disabled {
-  background: #b8c6b4;
-  border-color: #b8c6b4;
+  opacity: 0.6;
   cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
 }
 
-/* Entries Section */
+.cancel-btn {
+  background: #f0f0f0;
+  color: #666;
+}
+
+.cancel-btn:hover {
+  background: #e0e0e0;
+}
+
 .entries-section {
-  margin-top: 3rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .entries-section h2 {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #2c5e2e;
   margin-bottom: 1.5rem;
-  text-align: center;
-  letter-spacing: -0.3px;
+  color: #764ba2;
 }
 
 .no-messages {
   text-align: center;
-  color: #8ba888;
+  color: #999;
   font-style: italic;
-  padding: 3rem 1.5rem;
-  background: white;
-  border-radius: 20px;
-  border: 1px dashed #c4d3c1;
-  font-size: 1.1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  padding: 3rem;
 }
 
-/* Entry Cards */
 .entries-grid {
   display: flex;
   flex-direction: column;
@@ -166,48 +152,41 @@ button[type="submit"]:disabled {
 }
 
 .entry-card {
-  background: white;
-  border-radius: 16px;
+  border: 1px solid #eee;
+  border-radius: 8px;
   padding: 1.5rem;
-  border: 1px solid #eef3ec;
-  transition: all 0.2s ease;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .entry-card:hover {
-  border-color: #c4d3c1;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .entry-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   margin-bottom: 0.75rem;
 }
 
 .entry-header strong {
-  font-size: 1rem;
-  color: #2c5e2e;
-  font-weight: 500;
-  letter-spacing: -0.2px;
+  font-size: 1.1rem;
+  color: #333;
 }
 
 .entry-date {
-  font-size: 0.75rem;
-  color: #8ba888;
-  font-weight: 300;
+  font-size: 0.85rem;
+  color: #999;
 }
 
 .entry-message {
-  color: #3a4b3c;
+  color: #555;
   line-height: 1.6;
-  font-size: 0.95rem;
   margin-bottom: 1rem;
   white-space: pre-wrap;
-  font-weight: 300;
 }
 
-/* Action Buttons */
 .entry-actions {
   display: flex;
   gap: 0.5rem;
@@ -217,109 +196,24 @@ button[type="submit"]:disabled {
 .edit-btn,
 .delete-btn {
   padding: 0.4rem 1rem;
-  font-size: 0.8rem;
-  border: none;
-  background: transparent;
-  color: #8ba888;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-radius: 20px;
-  font-weight: 300;
-  letter-spacing: 0.3px;
+  font-size: 0.9rem;
+  flex: 0 1 auto;
+}
+
+.edit-btn {
+  background: #4a90e2;
+  color: white;
 }
 
 .edit-btn:hover {
-  color: #2c5e2e;
-  background: #f0f7ee;
+  background: #357abd;
+}
+
+.delete-btn {
+  background: #e74c3c;
+  color: white;
 }
 
 .delete-btn:hover {
-  color: #c44b4b;
-  background: #fff5f5;
-}
-
-/* Cancel button (when editing) */
-button.cancel-btn {
-  width: 100%;
-  padding: 1rem;
-  background: transparent;
-  color: #8ba888;
-  border: 1px solid #e0e8de;
-  border-radius: 30px;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-button.cancel-btn:hover {
-  background: #f0f7ee;
-  color: #2c5e2e;
-  border-color: #8ba888;
-}
-
-/* Form actions container */
-.form-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-/* Subtle decoration */
-.header::before {
-  content: '🌿';
-  display: block;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  opacity: 0.8;
-}
-
-.entry-card:last-child {
-  border-bottom: none;
-}
-
-/* Mobile Responsive */
-@media (max-width: 600px) {
-  .app {
-    padding: 1rem;
-  }
-  
-  .header h1 {
-    font-size: 2rem;
-  }
-  
-  .guestbook-form,
-  .entry-card {
-    padding: 1.25rem;
-  }
-}
-
-/* Loading state */
-.loading-spinner {
-  text-align: center;
-  padding: 2rem;
-  color: #8ba888;
-}
-
-.loading-spinner::after {
-  content: '🍃';
-  display: inline-block;
-  margin-left: 0.5rem;
-  animation: spin 2s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Forest elements - optional small touches */
-.entry-card::before {
-  content: '●';
-  color: #c4d3c1;
-  font-size: 0.5rem;
-  position: relative;
-  top: -0.5rem;
-  margin-right: 0.5rem;
-  opacity: 0.5;
+  background: #c0392b;
 }
