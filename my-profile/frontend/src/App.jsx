@@ -71,7 +71,7 @@ function App() {
     <div className="app">
       <header className="header">
         <h1>📝 My Profile & Guestbook</h1>
-        <p>Leave a message for me! 🌿</p>
+        <p>Leave a message for me! 🎀</p>
       </header>
 
       <main className="main">

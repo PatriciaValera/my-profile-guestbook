@@ -30,7 +30,7 @@ body::before {
 }
 
 body::after {
-  content: "🖤";
+  content: "💜";
   font-size: 150px;
   position: fixed;
   top: -30px;
@@ -72,7 +72,7 @@ body::after {
 /* Kuromi's bow ears effect */
 .header h1::before,
 .header h1::after {
-  content: "🖤";
+  content: "💜";
   font-size: 32px;
   position: absolute;
   top: -15px;
@@ -118,7 +118,7 @@ body::after {
 
 /* Kuromi's skull ribbon effect */
 .guestbook-form::before {
-  content: "☠️🖤☠️";
+  content: "☠️💜☠️";
   position: absolute;
   top: -15px;
   left: 50%;
@@ -245,7 +245,7 @@ button[type="submit"]:disabled {
 
 .entries-section h2::before,
 .entries-section h2::after {
-  content: "🖤";
+  content: "💜";
   font-size: 24px;  
   margin: 0 10px;
   opacity: 0.8;
@@ -433,7 +433,7 @@ button[type="submit"]:disabled {
 
 /* Kuromi's signature elements */
 .entry-card:nth-child(odd)::before {
-  content: "🖤";
+  content: "💜";
   position: absolute;
   top: 10px;
   left: 15px;
