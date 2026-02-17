@@ -1,4 +1,4 @@
-/* frontend/src/App.css - Kuromi Theme (CENTERED) */
+/* frontend/src/App.css - Kuromi Theme (Clean Centered) */
 
 * {
   margin: 0;
@@ -7,191 +7,93 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   background: #1a1a1a;
   min-height: 100vh;
   color: #f0e6f0;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* Subtle skull pattern background */
-body::before {
-  content: "☠️";
-  font-size: 120px;
-  position: fixed;
-  bottom: -20px;
-  right: -20px;
-  opacity: 0.03;
-  transform: rotate(-10deg);
-  pointer-events: none;
-  z-index: 0;
-}
-
-body::after {
-  content: "🖤";
-  font-size: 150px;
-  position: fixed;
-  top: -30px;
-  left: -30px;
-  opacity: 0.03;
-  transform: rotate(15deg);
-  pointer-events: none;
-  z-index: 0;
 }
 
 .app {
-  max-width: 700px;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
-  position: relative;
-  z-index: 1;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;  /* Center all content horizontally */
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
-/* Header Styles - CENTERED */
+/* Header Styles */
 .header {
   text-align: center;
   margin-bottom: 3rem;
-  position: relative;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .header h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #ff69b4;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-shadow: 3px 3px 0 #8a2be2, 5px 5px 0 #000;
+  font-weight: 600;
   margin-bottom: 0.5rem;
   font-family: 'Arial Black', sans-serif;
-  position: relative;
-  display: inline-block;
-  text-align: center;
-}
-
-/* Kuromi's bow ears effect */
-.header h1::before,
-.header h1::after {
-  content: "🖤";
-  font-size: 2rem;
-  position: absolute;
-  top: -15px;
-  opacity: 0.9;
-}
-
-.header h1::before {
-  left: -30px;
-  transform: rotate(-20deg);
-}
-
-.header h1::after {
-  right: -30px;
-  transform: rotate(20deg);
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 0 #8a2be2;
 }
 
 .header p {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: #b886d9;
-  font-weight: 400;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 0.5rem 2rem;
-  border-radius: 30px;
-  display: inline-block;
-  border: 2px solid #ff69b4;
-  box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
-  margin: 0 auto;  /* Center the paragraph */
-  text-align: center;
+  font-weight: 300;
 }
 
-/* Form Styles - CENTERED */
+/* Form Styles */
 .guestbook-form {
-  background: #2a1f2a;
-  padding: 2.5rem;
-  border-radius: 30px;
-  box-shadow: 0 10px 0 #000, 0 0 0 3px #ff69b4, 0 0 20px #ff69b4;
-  margin-bottom: 3rem;
-  border: 2px solid #8a2be2;
-  position: relative;
   width: 100%;
-  max-width: 550px;  /* Slightly narrower for better centering */
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 450px;
+  margin: 0 auto 3rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-/* Kuromi's skull ribbon effect */
-.guestbook-form::before {
-  content: "☠️🖤☠️";
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #2a1f2a;
-  padding: 0 20px;
-  font-size: 1.5rem;
-  color: #ff69b4;
-  border-radius: 30px;
-  border: 2px solid #ff69b4;
-  box-shadow: 0 3px 0 #000;
-  white-space: nowrap;
+  gap: 1.5rem;
 }
 
 .guestbook-form h2 {
-  font-size: 1.8rem;
-  font-weight: 600;
+  font-size: 1.2rem;
   color: #ff69b4;
-  margin-bottom: 2rem;
-  margin-top: 1rem;
-  text-align: center;
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 3px;
-  text-shadow: 2px 2px 0 #8a2be2;
-  width: 100%;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
 }
 
 .form-group {
-  margin-bottom: 1.8rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.5rem;
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #b886d9;
   font-size: 0.9rem;
-  font-weight: 600;
+  color: #b886d9;
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  text-align: center;  /* Center the label text */
-  width: 100%;
+  letter-spacing: 1px;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  max-width: 450px;  /* Control input width for better centering */
-  padding: 1rem 1.2rem;
-  border: 3px solid #4a2b4a;
-  border-radius: 20px;
-  font-size: 1rem;
-  font-family: inherit;
-  background: #1f151f;
-  transition: all 0.2s ease;
+  padding: 0.8rem 1rem;
+  border: 2px solid #4a2b4a;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #2a1f2a;
   color: #ffb6e1;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
-  margin: 0 auto;  /* Center the inputs */
-  display: block;
+  transition: all 0.2s ease;
+  text-align: center;
 }
 
 .form-group input:focus,
@@ -199,338 +101,224 @@ body::after {
   outline: none;
   border-color: #ff69b4;
   background: #2d1f2d;
-  box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.3), inset 0 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
   color: #4f3f4f;
-  font-style: italic;
-  text-align: center;  /* Center placeholder text */
+  text-align: center;
 }
 
-/* Submit Button - CENTERED */
+/* Submit Button */
 button[type="submit"] {
   width: 100%;
-  max-width: 450px;
-  padding: 1.2rem;
-  background: linear-gradient(145deg, #ff69b4, #8a2be2);
+  max-width: 200px;
+  padding: 0.8rem 1.5rem;
+  background: #ff69b4;
   color: white;
   border: none;
-  border-radius: 40px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: 2px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.2s ease;
-  border: 3px solid #000;
-  box-shadow: 0 8px 0 #4f1f4f, 0 0 0 2px #ff69b4;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 0 #000;
-  margin: 0 auto;  /* Center the button */
-  display: block;
+  border: 2px solid #8a2be2;
+  margin-top: 0.5rem;
 }
 
 button[type="submit"]:hover {
-  transform: translateY(4px);
-  box-shadow: 0 4px 0 #4f1f4f, 0 0 0 2px #ff69b4, 0 0 20px #ff69b4;
-  background: linear-gradient(145deg, #ff7abf, #9b4be2);
+  background: #8a2be2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
 }
 
 button[type="submit"]:active {
-  transform: translateY(8px);
-  box-shadow: 0 0px 0 #4f1f4f, 0 0 0 2px #ff69b4;
+  transform: translateY(0);
 }
 
 button[type="submit"]:disabled {
   opacity: 0.5;
-  transform: translateY(4px);
-  box-shadow: 0 4px 0 #4f1f4f;
   cursor: not-allowed;
+  transform: none;
 }
 
-/* Entries Section - CENTERED */
+/* Entries Section */
 .entries-section {
-  margin-top: 4rem;
-  position: relative;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .entries-section h2 {
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 1.2rem;
   color: #ff69b4;
-  margin-bottom: 2rem;
-  text-align: center;
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 4px;
-  text-shadow: 3px 3px 0 #8a2be2, 5px 5px 0 #000;
-  position: relative;
-  display: inline-block;
-}
-
-.entries-section h2::before,
-.entries-section h2::after {
-  content: "🖤";
-  font-size: 1.5rem;
-  margin: 0 10px;
-  opacity: 0.8;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
 }
 
 .no-messages {
   text-align: center;
   color: #b886d9;
-  padding: 4rem 2rem;
+  padding: 2rem;
   background: #2a1f2a;
-  border-radius: 30px;
-  border: 3px dashed #ff69b4;
-  font-size: 1.2rem;
-  font-weight: 500;
-  box-shadow: 0 10px 0 #000;
-  width: 100%;
-  max-width: 550px;
-  margin: 0 auto;
+  border-radius: 12px;
+  border: 2px dashed #4a2b4a;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
 }
 
 .no-messages::before {
-  content: "😈☠️😈";
+  content: "😈";
   display: block;
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
   color: #ff69b4;
 }
 
-/* Entry Cards - CENTERED */
+/* Entry Cards */
 .entries-grid {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   width: 100%;
-  max-width: 550px;
-  margin: 0 auto;
 }
 
 .entry-card {
   background: #2a1f2a;
-  border-radius: 30px;
-  padding: 1.8rem;
-  border: 3px solid #4a2b4a;
-  box-shadow: 0 8px 0 #000, 0 0 0 2px #ff69b4;
+  border-radius: 12px;
+  padding: 1.2rem;
+  border: 2px solid #4a2b4a;
   transition: all 0.2s ease;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  text-align: left;  /* Keep entry text left-aligned for readability */
-}
-
-/* Kuromi's Jolly Roger accent */
-.entry-card::after {
-  content: "☠️";
-  position: absolute;
-  bottom: 10px;
-  right: 15px;
-  font-size: 2rem;
-  opacity: 0.1;
-  transform: rotate(10deg);
+  text-align: left;
 }
 
 .entry-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 0 #000, 0 0 0 2px #ff69b4, 0 0 25px #ff69b4;
   border-color: #ff69b4;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
 }
 
 .entry-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #4a2b4a;
+  border-bottom: 1px solid #4a2b4a;
 }
 
 .entry-header strong {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #ff69b4;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  background: #1f151f;
-  padding: 0.3rem 1rem;
-  border-radius: 30px;
-  border: 2px solid #8a2be2;
+  font-weight: 500;
 }
 
 .entry-date {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: #b886d9;
-  background: #1f151f;
-  padding: 0.3rem 1rem;
-  border-radius: 30px;
-  border: 1px solid #4a2b4a;
+  opacity: 0.8;
 }
 
 .entry-message {
   color: #e0b0e0;
-  line-height: 1.7;
-  font-size: 1rem;
-  margin: 1.2rem 0;
-  padding: 0.5rem 1rem;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  margin-bottom: 0.8rem;
   white-space: pre-wrap;
-  text-align: left;
 }
 
-/* Action Buttons - CENTERED within card */
+/* Entry Action Buttons */
 .entry-actions {
   display: flex;
-  gap: 0.8rem;
+  gap: 0.5rem;
   justify-content: flex-end;
-  margin-top: 1rem;
 }
 
 .edit-btn,
 .delete-btn {
-  padding: 0.6rem 1.5rem;
-  font-size: 0.9rem;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
   border: none;
-  background: #1f151f;
+  background: transparent;
   color: #b886d9;
   cursor: pointer;
   transition: all 0.2s ease;
-  border-radius: 30px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  border: 2px solid #4a2b4a;
-  text-transform: uppercase;
-  box-shadow: 0 4px 0 #000;
+  border-radius: 4px;
+  font-weight: 400;
 }
 
 .edit-btn:hover {
-  background: #8a2be2;
-  color: white;
-  border-color: #ff69b4;
-  transform: translateY(2px);
-  box-shadow: 0 2px 0 #000;
+  color: #ff69b4;
+  background: #3a2b3a;
 }
 
 .delete-btn:hover {
-  background: #ff1493;
-  color: white;
-  border-color: #ff69b4;
-  transform: translateY(2px);
-  box-shadow: 0 2px 0 #000;
+  color: #ff4444;
+  background: #3a2b3a;
 }
 
-/* Cancel button (when editing) - CENTERED */
+/* Cancel button */
 .cancel-btn {
   width: 100%;
-  max-width: 450px;
-  padding: 1.2rem;
-  background: #1f151f;
+  max-width: 200px;
+  padding: 0.8rem;
+  background: transparent;
   color: #b886d9;
-  border: 3px solid #4a2b4a;
-  border-radius: 40px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 2px;
+  border: 2px solid #4a2b4a;
+  border-radius: 25px;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  text-transform: uppercase;
-  box-shadow: 0 8px 0 #000;
-  margin: 1rem auto 0;
+  margin: 0.5rem auto 0;
   display: block;
 }
 
 .cancel-btn:hover {
-  transform: translateY(4px);
-  box-shadow: 0 4px 0 #000;
-  background: #2f1f2f;
   border-color: #ff69b4;
   color: #ff69b4;
+  background: #2a1f2a;
 }
 
 /* Form actions container */
 .form-actions {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  width: 100%;
   align-items: center;
-}
-
-/* Kuromi's signature elements */
-.entry-card:nth-child(odd)::before {
-  content: "🖤";
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  font-size: 1.2rem;
-  opacity: 0.3;
-}
-
-.entry-card:nth-child(even)::before {
-  content: "🎀";
-  position: absolute;
-  top: 10px;
-  left: 15px;
-  font-size: 1.2rem;
-  opacity: 0.3;
-  transform: rotate(-15deg);
+  gap: 0.5rem;
 }
 
 /* Mobile Responsive */
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .app {
     padding: 1rem;
   }
   
   .header h1 {
-    font-size: 2.2rem;
-  }
-  
-  .header h1::before,
-  .header h1::after {
-    display: none;
+    font-size: 2rem;
   }
   
   .guestbook-form {
-    padding: 1.5rem;
-  }
-  
-  .guestbook-form,
-  .entry-card,
-  .no-messages {
-    max-width: 100%;
-  }
-  
-  .form-group input,
-  .form-group textarea,
-  button[type="submit"] {
     max-width: 100%;
   }
   
   .entry-header {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.3rem;
     align-items: flex-start;
   }
 }
 
-/* Loading state - CENTERED */
+/* Loading state */
 .loading-spinner {
   text-align: center;
   padding: 2rem;
   color: #ff69b4;
-  font-size: 1.2rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  width: 100%;
+  font-size: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -538,29 +326,12 @@ button[type="submit"]:disabled {
 }
 
 .loading-spinner::after {
-  content: '☠️';
+  content: '😈';
   display: inline-block;
   animation: spin 1s linear infinite;
-  font-size: 1.5rem;
 }
 
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 12px;
-  background: #1f151f;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #ff69b4, #8a2be2);
-  border-radius: 30px;
-  border: 2px solid #000;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #ff7abf, #9b4be2);
 }
