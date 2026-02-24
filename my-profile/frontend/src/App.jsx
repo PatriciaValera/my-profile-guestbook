@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 
-const API_URL = 'http://localhost:3000/api/guestbook';
+const API_URL = 'http://localhost:5173/api/guestbook';
 
 function App() {
   const [entries, setEntries] = useState([]);
