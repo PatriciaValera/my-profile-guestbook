@@ -13,7 +13,7 @@ async function bootstrap() {
   app.enableCors({
     origin: isDevelopment 
       ? ['http://localhost:5173', 'http://127.0.0.1:5173', 'https://*.vercel.app']
-      : ['https://personal-website-finals-theta.vercel.app', 'https://*.vercel.app'],
+      : ['https://my-profile-guestbook.vercel.app', 'https://*.vercel.app'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   });
