@@ -16,7 +16,7 @@ async function bootstrap() {
   // THIS LINE IS CRITICAL - it actually starts your server!
   await app.listen(3000);
   
-  console.log(`🚀 Backend running on http://localhost:3000/api/guestbook`);
+  console.log(`Backend running on http://localhost:3000/api/guestbook`);
 }
 
 // For local development - KEEP THIS UNCOMMENTED!
