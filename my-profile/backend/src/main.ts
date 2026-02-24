@@ -4,16 +4,16 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   
-  // Allow requests from your Vercel frontend
+  // Enable CORS for your Vercel frontend
   app.enableCors({
     origin: ['https://my-profile-guestbook-8xzo.vercel.app', 'https://*.vercel.app'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   });
   
-  app.setGlobalPrefix('api');
+  app.setGlobalPrefix('api');  // ✅ This adds the /api prefix globally
   await app.listen(3000);
-  console.log(`🚀 Backend running on port 3000`);
+  console.log('🚀 Backend running on port 3000');
 }
 
 bootstrap();
