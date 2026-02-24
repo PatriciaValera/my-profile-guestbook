@@ -1,9 +1,13 @@
-// frontend/src/App.jsx - Add this updated version with error handling
+// frontend/src/App.jsx - Updated version with correct URL handling
 
 import { useEffect, useState } from 'react';
 import './App.css';
 
-const API_URL = 'http://localhost:3000/api/guestbook';
+// Use environment variable if available, otherwise fallback to localhost
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api/guestbook';
+
+// Add debug log to see what URL is being used
+console.log('🔧 Using API URL:', API_URL);
 
 function App() {
   const [entries, setEntries] = useState([]);
@@ -15,6 +19,8 @@ function App() {
   const fetchEntries = async () => {
     try {
       setError('');
+      console.log('📡 Fetching from:', API_URL);
+      
       const res = await fetch(API_URL);
       
       if (!res.ok) {
@@ -22,11 +28,11 @@ function App() {
       }
       
       const data = await res.json();
-      console.log('Fetched entries:', data); // Debug log
+      console.log('✅ Fetched entries:', data);
       setEntries(data);
     } catch (error) {
-      console.error('Error fetching entries:', error);
-      setError('Failed to load messages. Is the backend running?');
+      console.error('❌ Error fetching entries:', error);
+      setError(`Failed to load messages: ${error.message}. Is the backend running?`);
     }
   };
 
@@ -43,7 +49,7 @@ function App() {
       const method = editingId ? 'PUT' : 'POST';
       const url = editingId ? `${API_URL}/${editingId}` : API_URL;
 
-      console.log('Sending request:', { method, url, data: form }); // Debug log
+      console.log('📤 Sending request:', { method, url, data: form });
 
       const res = await fetch(url, {
         method,
@@ -51,11 +57,21 @@ function App() {
         body: JSON.stringify(form),
       });
 
-      const responseData = await res.json();
-      console.log('Response:', responseData); // Debug log
+      // Get response text first
+      const responseText = await res.text();
+      console.log('📥 Response text:', responseText);
+
+      // Try to parse as JSON if possible
+      let responseData;
+      try {
+        responseData = JSON.parse(responseText);
+        console.log('✅ Response data:', responseData);
+      } catch (e) {
+        console.log('Response is not JSON:', responseText);
+      }
 
       if (!res.ok) {
-        throw new Error(`Server error: ${res.status}`);
+        throw new Error(`Server error: ${res.status} - ${responseText}`);
       }
 
       setForm({ name: '', message: '' });
@@ -63,8 +79,8 @@ function App() {
       fetchEntries(); // Refresh the list
       
     } catch (error) {
-      console.error('Error saving entry:', error);
-      setError('Failed to save message. Check console for details.');
+      console.error('❌ Error saving entry:', error);
+      setError(`Failed to save message: ${error.message}`);
     } finally {
       setLoading(false);
     }
@@ -75,7 +91,15 @@ function App() {
     
     try {
       setError('');
-      const res = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+      console.log('📤 Deleting:', `${API_URL}/${id}`);
+      
+      const res = await fetch(`${API_URL}/${id}`, { 
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
+      });
+      
+      const responseText = await res.text();
+      console.log('📥 Delete response:', responseText);
       
       if (!res.ok) {
         throw new Error(`HTTP error! status: ${res.status}`);
@@ -83,8 +107,8 @@ function App() {
       
       fetchEntries();
     } catch (error) {
-      console.error('Error deleting entry:', error);
-      setError('Failed to delete message.');
+      console.error('❌ Error deleting entry:', error);
+      setError(`Failed to delete message: ${error.message}`);
     }
   };
 
@@ -107,7 +131,8 @@ function App() {
           padding: '1rem', 
           borderRadius: '10px',
           marginBottom: '1rem',
-          textAlign: 'center'
+          textAlign: 'center',
+          border: '1px solid #ef9a9a'
         }}>
           ❌ {error}
         </div>
@@ -141,7 +166,7 @@ function App() {
 
           <div className="form-actions">
             <button type="submit" disabled={loading}>
-              {loading ? 'Saving...' : editingId ? 'Update' : 'Sign Guestbook'}
+              {loading ? 'Saving...' : editingId ? 'Update Message' : 'Sign Guestbook'}
             </button>
             {editingId && (
               <button 
@@ -190,6 +215,11 @@ function App() {
           )}
         </section>
       </main>
+      
+      {/* Debug info - remove in production */}
+      <div style={{ marginTop: '2rem', padding: '1rem', background: '#f5f5f5', borderRadius: '5px', fontSize: '0.8rem' }}>
+        <strong>Debug:</strong> API URL: {API_URL}
+      </div>
     </div>
   );
 }
