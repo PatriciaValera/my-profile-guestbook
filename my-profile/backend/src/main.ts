@@ -23,7 +23,7 @@ async function bootstrap() {
   const port = configService.get('PORT') || 3000;
   await app.listen(port);
   
-  console.log(`🚀 Backend running on http://localhost:${port}/api/guestbook`);
+  console.log(`🚀 Backend running on http://localhost:3000/api/guestbook`);
   console.log(`🔓 CORS enabled for: ${isDevelopment ? 'development origins' : 'production origins'}`);
 }
 
