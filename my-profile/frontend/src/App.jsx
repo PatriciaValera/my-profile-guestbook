@@ -1,3 +1,5 @@
+// frontend/src/App.jsx - Add this updated version with error handling
+
 import { useEffect, useState } from 'react';
 import './App.css';
 
@@ -8,14 +10,23 @@ function App() {
   const [form, setForm] = useState({ name: '', message: '' });
   const [editingId, setEditingId] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const fetchEntries = async () => {
     try {
+      setError('');
       const res = await fetch(API_URL);
+      
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      
       const data = await res.json();
+      console.log('Fetched entries:', data); // Debug log
       setEntries(data);
     } catch (error) {
       console.error('Error fetching entries:', error);
+      setError('Failed to load messages. Is the backend running?');
     }
   };
 
@@ -26,10 +37,13 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError('');
     
     try {
       const method = editingId ? 'PUT' : 'POST';
       const url = editingId ? `${API_URL}/${editingId}` : API_URL;
+
+      console.log('Sending request:', { method, url, data: form }); // Debug log
 
       const res = await fetch(url, {
         method,
@@ -37,28 +51,40 @@ function App() {
         body: JSON.stringify(form),
       });
 
-      if (res.ok) {
-        setForm({ name: '', message: '' });
-        setEditingId(null);
-        fetchEntries();
+      const responseData = await res.json();
+      console.log('Response:', responseData); // Debug log
+
+      if (!res.ok) {
+        throw new Error(`Server error: ${res.status}`);
       }
+
+      setForm({ name: '', message: '' });
+      setEditingId(null);
+      fetchEntries(); // Refresh the list
+      
     } catch (error) {
       console.error('Error saving entry:', error);
+      setError('Failed to save message. Check console for details.');
     } finally {
       setLoading(false);
     }
   };
 
   const handleDelete = async (id) => {
-    if (!confirm('Are you sure you want to delete this message?')) return;
+    if (!confirm('Delete this message?')) return;
     
     try {
+      setError('');
       const res = await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
-      if (res.ok) {
-        fetchEntries();
+      
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
       }
+      
+      fetchEntries();
     } catch (error) {
       console.error('Error deleting entry:', error);
+      setError('Failed to delete message.');
     }
   };
 
@@ -71,8 +97,21 @@ function App() {
     <div className="app">
       <header className="header">
         <h1>📝 My Profile & Guestbook</h1>
-        <p>Leave a message for me! 🎀</p>
+        <p>Leave a message for me! 🎉</p>
       </header>
+
+      {error && (
+        <div style={{ 
+          background: '#ffebee', 
+          color: '#c62828', 
+          padding: '1rem', 
+          borderRadius: '10px',
+          marginBottom: '1rem',
+          textAlign: 'center'
+        }}>
+          ❌ {error}
+        </div>
+      )}
 
       <main className="main">
         <form onSubmit={handleSubmit} className="guestbook-form">
@@ -111,6 +150,7 @@ function App() {
                   setEditingId(null);
                   setForm({ name: '', message: '' });
                 }}
+                className="cancel-btn"
               >
                 Cancel
               </button>
@@ -122,19 +162,27 @@ function App() {
           <h2>Messages ({entries.length})</h2>
           
           {entries.length === 0 ? (
-            <p className="no-messages">No messages yet. Be the first! 🍄</p>
+            <p className="no-messages">
+              {error ? '⚠️ Error loading messages' : 'No messages yet. Be the first! 🍄'}
+            </p>
           ) : (
             <div className="entries-grid">
               {entries.map((entry) => (
                 <div key={entry.id} className="entry-card">
                   <div className="entry-header">
                     <strong>{entry.name}</strong>
-                    <span>{new Date(entry.created_at).toLocaleDateString()}</span>
+                    <span className="entry-date">
+                      {new Date(entry.created_at).toLocaleString()}
+                    </span>
                   </div>
-                  <p>{entry.message}</p>
+                  <p className="entry-message">{entry.message}</p>
                   <div className="entry-actions">
-                    <button onClick={() => startEdit(entry)}>Edit</button>
-                    <button onClick={() => handleDelete(entry.id)}>Delete</button>
+                    <button onClick={() => startEdit(entry)} className="edit-btn">
+                      Edit
+                    </button>
+                    <button onClick={() => handleDelete(entry.id)} className="delete-btn">
+                      Delete
+                    </button>
                   </div>
                 </div>
               ))}
