@@ -4,18 +4,22 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   
-  // Allow ALL origins in development (temporary fix)
+  // Get the frontend URL from environment or use a wildcard for development
+  const frontendUrl = process.env.FRONTEND_URL || true;
+  
   app.enableCors({
-    origin: true,  // This allows any origin
+    origin: frontendUrl,  // Allow your specific Codespaces frontend URL
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   });
   
   app.setGlobalPrefix('api');
   await app.listen(3000);
-  console.log(`Backend running on http://localhost:3000/api/guestbook`);
+  console.log(`Backend running on port 3000`);
+  console.log(`CORS enabled for: ${frontendUrl === true ? 'all origins' : frontendUrl}`);
 }
 
+// UNCOMMENT THIS LINE!
 bootstrap();
 
 export default async (req: any, res: any) => {
