@@ -19,7 +19,6 @@ async function bootstrap() {
   console.log(`CORS enabled for: ${frontendUrl === true ? 'all origins' : frontendUrl}`);
 }
 
-// UNCOMMENT THIS LINE!
 bootstrap();
 
 export default async (req: any, res: any) => {
